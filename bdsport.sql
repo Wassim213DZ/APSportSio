@@ -1,42 +1,24 @@
-CREATE DATABASE IF NOT EXISTS bdSport;
 USE bdSport;
 
-CREATE TABLE utilisateur (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    login VARCHAR(50) NOT NULL,
-    motDePasse VARCHAR(50) NOT NULL
-);
-
-
-CREATE TABLE sport (
-    idSport INT AUTO_INCREMENT PRIMARY KEY,
-    nomSport VARCHAR(50) NOT NULL
-);
-
-
-CREATE TABLE niveau (
-    idNiveau INT AUTO_INCREMENT PRIMARY KEY,
-    libelleNiveau VARCHAR(50) NOT NULL
-);
-
-
-CREATE TABLE sportif (
+CREATE TABLE Sportif (
     idSportif INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL,
     prenom VARCHAR(50) NOT NULL,
     dateNaissance DATE NOT NULL,
+    rue VARCHAR(100) NOT NULL,
+    codePostal VARCHAR(10) NOT NULL,
     ville VARCHAR(50) NOT NULL,
-    niveauExperience VARCHAR(50) NOT NULL,
+    niveauExperience VARCHAR(20) NOT NULL,
     nomSport VARCHAR(50) NOT NULL
-);
+    );
+
+insert into Sportif(nom,prenom,dateNaissance,rue,codePostal,ville,niveauExperience,nomSport) VALUES
+('DAVOLIO', 'Jeanne', '1998-03-15', '12 rue des Lilas', '75001', 'Paris', 'Avance', 'Tennis'),
+('MARTIN', 'Julien', '2001-07-22', '5 avenue Victor Hugo', '69002', 'Lyon', 'Confirme', 'Football'),
+('DUPONT', 'Emma', '1995-11-09', '8 rue de la Paix', '33000', 'Bordeaux', 'Debutant', 'Natation'),
+('BERNARD', 'Lucas', '1999-01-30', '3 rue Pasteur', '59000', 'Lille', 'Professionnel', 'Judo'),
+('PETIT', 'Chloe', '2003-05-18', '17 rue du Commerce', '44000', 'Nantes', 'Confirme', 'Basketball'),
+('ROBERT', 'Hugo', '1997-09-04', '22 rue de la Republique', '31000', 'Toulouse', 'Avance', 'Rugby'),
+('RICHARD', 'Lea', '2000-12-25', '9 rue des Fleurs', '13001', 'Marseille', 'Debutant', 'Course');
 
 
-INSERT INTO utilisateur (login, motDePasse) VALUES ('admin', 'admin');
-
-
-INSERT INTO sportif (nom, prenom, dateNaissance, ville, niveauExperience, nomSport) VALUES 
-('Dupont', 'Thomas', '1998-05-12', 'Paris', 'Confirme', 'Football'),
-('Martin', 'Chloe', '2001-09-23', 'Lyon', 'Debutant', 'Tennis'),
-('Bernard', 'Lucas', '1995-02-15', 'Marseille', 'Professionnel', 'Basketball'),
-('Thomas', 'Sarah', '1999-11-04', 'Paris', 'Avance', 'Natation'),
-('Petit', 'Alexandre', '2003-07-30', 'Bordeaux', 'Debutant', 'Judo');
